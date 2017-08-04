@@ -1,0 +1,619 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Virtual Kiosk</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="animate/animate.css">
+<link rel="stylesheet" type="text/css" href="fontawesome/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="hover/css/hover.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="scripts.js"></script>
+
+<style>
+
+
+  #wrapper {
+    -webkit-perspective: 1100px;
+    -webkit-perspective-origin: 50% 300px;
+    perspective: 1100px;
+    perspective-origin: 50% 300px;
+    margin-top: 100px;
+  }
+
+  #cube {
+    position: relative;
+    margin: 0 auto;
+    height: 1000px;
+    width: 600px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: all 2s ease;
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+  }
+
+  #cube2 {
+    position: relative;
+    margin: 0 auto;
+    height: 1000px;
+    width: 600px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: all 2s ease;
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+  }
+
+  .face {
+    position: absolute;
+    height: 1400px;
+    width: 600px;
+     border-radius: 5px;
+  }
+
+   .face2 {
+    position: absolute;
+    height: 1400px;
+    width: 300px;
+     border-radius: 5px;
+  }
+
+  #cube .one {
+    -webkit-transform: translateZ(300px);
+    transform: translateZ(150px);
+  }
+
+  #cube .two{
+    -webkit-transform: rotateY(90deg) translateZ(300px);
+    transform: rotateY(90deg) translateZ(450px);
+  }
+
+  #cube .three {
+    -webkit-transform: rotateY(180deg) translateZ(300px);
+    transform: rotateY(180deg) translateZ(150px);
+  }
+
+  #cube .four {
+    -webkit-transform: rotateY(-90deg) translateZ(300px);
+    transform: rotateY(-90deg) translateZ(150px);
+  }
+
+</style>
+
+</head>
+
+<body>
+
+   <!-- __________________________________________________ Navbar __________________________________________________-->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#" id="face1">Front</a>
+  <a href="#" id="face2">Right</a>
+  <a href="#" id="face4">Left</a>
+  <a href="#" id="face3">Back</a>
+  
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+
+
+
+<div class="animated fadeIn" id="wrapper">
+  <div id="cube">
+    <!-- __________________________________________________ Face 1 __________________________________________________-->
+    <div class="face one cubebox">
+      <div id="screen">
+        <div id="mainpage">
+          <div class = "container-fluid jumbotron text-center">
+            <h1>TIMELESS</h1>
+
+
+            <div class = "row">
+              <div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24176.251535937678!2d-73.96828677849066!3d40.761333182809906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258c4d85a0d8d%3A0x11f877ff0b8ffe27!2sRoosevelt+Island!5e0!3m2!1sen!2sus!4v1501601044727" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div> 
+            </div>
+
+            <div class="row">
+              <div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <div class = "col-xs-6 col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 " >
+                  <center> 
+                    <button type="button" class="btn btn-primary btn-block" id="blogbutton">Blog</button><br>
+
+                    <!-- Secondary, outline button -->
+                    <button type="button" class="btn btn-primary btn-block" id="announcementsbutton">Announcements</button><br>
+
+                    <!-- Indicates a successful or positive action -->
+                    <button type="button" class="btn btn-primary btn-block" id="suggestionsbutton">Suggestions</button><br>
+                  </center>
+                </div>
+              </div>
+            </div>  
+          </div>
+        </div>
+
+        <div id="blogpage" >
+         <a type="button" id="backtomain" class = "btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+          
+          <!-- BEGINNING OF BLOG -->   
+            <div class = "container-fluid">
+             <div class="main-page">
+             <!-- top-nav -->
+             <div class="top-nav">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-md-6 col-sm-6"></div>
+                          <div class="col-md-6 col-sm-6"></div>
+                      </div>
+                  </div>   
+             </div>
+             
+             <!-- main-banner -->
+              <div class="main-banner">
+                  <div class="container-fluid">
+                      <img src="tramway.gif" height = "200" width = "1200" class="img-responsive">
+                  </div>
+              </div>
+              
+              <!-- post-widgets -->
+              <div class="post-widgets">
+                  <div class="container-fluid">
+                  <div class = "row">
+                    <nav class="navbar navbar-inverse">
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <ul class="nav navbar-nav" id = "nav">
+                          <li class="active"><a href="#">Home</a></li>
+                          <li><a type = "button" id = "photosbutton" href="#slideshow-bob">Photos</a></li>
+                          <li><a type = "button" id = "videosbutton" href="#videos">Videos</a></li>
+                        </ul>
+                  
+                      </div>
+                    </nav>
+                  </div>
+                      <div class="row">
+                          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              <div class="page">
+                              <a href = "#">
+                                  <h3 align = "center">"Meet Cheryl"</h3>
+                                  </a>
+                                  <div class="details">
+                                      <ul>
+                                       
+                                          <li>Date: April 18, 2017</li>
+                                         
+                                      </ul>
+                                  </div>
+                                  <div class="blogcontent">
+                                       <p><img src=https://alvitacare.com/wp-content/uploads/2013/06/hobbies-for-wheelchair-seniors.jpg width=200></p>
+                                  </div>
+                                  <h4>Cheryl is a weelchair-bound senior at Roosevelt Island. She loves nature<br>and jazz music.</h4>
+                                   <button type="button" class="btn btn-success" id="suggestionsbutton">Read More</button>
+                                  
+                              </div>
+                              <div class="page">
+                              <a href = "#">
+                                  <h3 align = "center">
+                                    "Meet John"
+                                  </h3></a>
+                                  <div class="details">
+                                      <ul>
+                                          
+                                          <li>Date: April 18, 2017</li>
+                                          
+                                      </ul>
+                                  </div>
+                                  <div class="blogcontent">
+                                       <p>
+                                       John is a hearing impaired senior on Roosevelt Island. He was diagnosed of Autism at the age of 10. 
+                                        </p>
+                                  </div>
+                                  <button type="button" class="btn btn-success" id="suggestionsbutton">Read More</button>
+                                  
+                              </div>
+                              
+                              
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+
+          </div><!-- END BLOG -->
+          </div>
+        </div>
+
+        <!-- Slideshow -->
+        <div id = "slideshow-bob">
+        <a type="button" id="backtoblog" class = "btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+          <div class = "container-fluid">
+            <h1 class="section-header">Photo Gallery</h1>
+            <div class="section-header-underline"></div>
+            <div class = "slideshow">
+              <iframe style="border:none" src="http://files.photosnack.com/iframejs/embed.html?hash=ptp56jcc4&t=1501688554" width="500" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" >
+                
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Videos -->
+        <div id = "videos">
+          <a type="button" id="backtoblog2" class = "btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+          <div class = "container-fluid">
+             <div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="content">
+                <h1 class="section-header">Video Gallery</h1>
+                <div class="section-header-underline"></div>
+                <div class="video-gallery"> 
+                  <div class="gallery-item"> 
+                    <img src="http://img.youtube.com/vi/bNZapuinmvs/0.jpg" alt="Editor Reel"  />
+                    <div class="gallery-item-caption">
+                      <div>
+                        <h2>Connect Through <span>Tech</span></h2>
+                        <p>Giving Older People a Voice Through Technology</p>
+                      </div>
+                      <a class="vimeo-popup" href="https://www.youtube.com/embed/bNZapuinmvs"></a>
+                    </div>      
+                  </div>
+            
+            
+                  <div class="gallery-item ">
+                    <img src="http://img.youtube.com/vi/3LGSfgOi9UU/0.jpg" alt="Editor Reel"/>
+                    <div class="gallery-item-caption">
+                      <div>
+                        <h2> True <span>Unity</span></h2>
+                        <p>Bringing Younger and Older Generations Together</p>
+                      </div>
+                      <a class="vimeo-popup" href="https://www.youtube.com/embed/3LGSfgOi9UU"></a>
+                    </div>                    
+                  </div>
+                  
+                  <div class="gallery-item">
+                    <img src="http://img.youtube.com/vi/ehvw0TKm5vA/0.jpg" alt="Editor Reel"/>
+                    <div class="gallery-item-caption">
+                      <div>
+                        <h2>Hugs <span>Never </span>Age</h2>
+                        <p>A story about interaction between children and eldery</p>
+                      </div>
+                      <a class="vimeo-popup" href="https://www.youtube.com/embed/ehvw0TKm5vA"></a>
+                    </div>      
+                  </div>
+                   
+                  <div class="gallery-item">
+                    <img src="http://img.youtube.com/vi/jEYpJhuBMcU/0.jpg" alt="Editor Reel"/>
+                    <div class="gallery-item-caption">
+                      <div>
+                        <h2>Amazing <span>Wedding </span>Cakes</h2>
+                        <p>weTV | Episode: Crazy Client Requests</p>
+                      </div>
+                      <a class="vimeo-popup" href="https://www.youtube.com/embed/jEYpJhuBMcU"></a>
+                    </div>      
+                  </div>
+                  
+                </div>
+              </div>
+             </div> 
+          </div>
+
+        </div>
+        <!-- Announcements -->
+      <div id="announcements">
+       <a type="button" id="backtomain2" class = "btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+       <div class="text-center" >
+        <h1>Announcements</h1>
+          <div class="container-fluid">
+          <div class="row">
+            <div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+                
+                    <!-- Fluid width widget -->        
+                  <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <span class="glyphicon glyphicon-calendar"></span> 
+                                Calendar Events
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div class="media-left">
+                                        <div class="panel panel-info text-center date">
+                                            <div class="panel-heading month">
+                                                <span class="panel-title strong">
+                                                    July
+                                                </span>
+                                            </div>
+                                            <div class="panel-body day text-danger">
+                                                27
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            Carter Burden Galley Exhibition.
+                                        </h4>
+                                        <p>
+                                            Opening reception: from 6 to 8 P.M.
+                                        </p>
+                                        <p>
+                                            On the Wall: Anna H. Walter
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left">
+                                        <div class="panel panel-info text-center date">
+                                            <div class="panel-heading month">
+                                                <span class="panel-title strong">
+                                                    Aug.
+                                                </span>
+                                            </div>
+                                            <div class="panel-body text-danger day">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            Caregiveer Advocacy: How to take care of yourself and be heard by others
+                                        </h4>
+                                        <p>
+                                            Open Reception: 1:15p.m.-2:15p.m>
+                                        </p>
+                                        <p>
+                                        Leonard Covello Senior Program, 3rd Floor Library
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left">
+                                        <div class="panel panel-info text-center date">
+                                            <div class="panel-heading month">
+                                                <span class="panel-title strong all-caps">
+                                                    Oct.
+                                                </span>
+                                            </div>
+                                            <div class="panel-body text-danger day">
+                                                15
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            Roosevelt Island Senior Center- One Year Anniversary Celebration
+                                        </h4>
+                                        <p>
+                                            Open Reception: 2:00p.m.-4:00p.m.
+                                        </p>
+                                        <p>
+                                            Located at the Roosevelt Island Senior Center
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-default btn-block">More Events »</a>
+                        </div>
+                    </div>
+                    <!-- End fluid width widget --> 
+                    <iframe src="https://teamup.com/ksqy23dy37x39f3ei5" frameborder="0" width="100%" height="400">
+                      
+                    </iframe>
+        </div>
+      </div>
+      </div>
+
+    </div>
+    </div>
+
+    <div id="suggestions">
+      <a type="button" id="backtomain3" class = "btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+       <div class="text-center" >
+        <h1>Suggestions</h1>
+          <div class="container-fluid">
+
+            <div class="row">
+               <center> 
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 ">
+                  <button type="button" class="btn btn-primary btn-block" id="surveybutton">Take Our Weekly Survey</button><br>              
+                  <button type="button" class="btn btn-primary btn-block" id="surveyresultsbutton">View This weeks Results</button><br>
+                  <button type="button" class="btn btn-primary btn-block" id="makesuggestionbutton">Make a Suggestion</button><br>
+                </div>                  
+                </center>
+            </div>
+
+            <div class="row" id="survey">
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSenL5n07XXt9UAUD0fEJkPe7Fj25GrcepwK-uUDSTf0KJjg8g/viewform?embedded=true" width="400" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+           </div>
+
+           <div class="panel panel-info" id="surveyresults">
+              <div class="panel-heading">
+                <h3>This Weeks Survey Results</h3>
+              </div>
+              <div class="panel-body">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar"
+                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">
+                    Art Class
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar"
+                  aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                    Field Trips
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar"
+                  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                    Movie Night
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar"
+                  aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                    Game Night
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar"
+                  aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width:45%">
+                    Excercise Class
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar"
+                  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
+                    Talent Show
+                  </div>
+                </div>
+                </div>
+
+           </div>
+
+           <div id="makesuggestion">
+             <div class="panel panel-info">
+                 <div class="panel-heading">
+                  <h3>Make a Suggestion</h3>
+                </div>
+                 <div class="panel-body">
+                    <div class="form-group">
+                      <textarea class="form-control" rows="5" id="comment"></textarea>
+                    </div>
+                     <center>
+                      <label for="comment">Try our on-screen keyboard!</label>
+                      <img src="pictures/keyboard2.png" width="400px">
+                     <hr>
+                     <button class="btn btn-primary" id="submitsuggestion">Submit</button>
+                     <p id="submitmessage" style="height: 80px; padding-top: 30px; font-size: 40px;"></p>
+
+                     </center>
+                </div>
+             </div>
+            
+           </div>
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+      </div>
+
+
+
+    </div>
+    
+
+    <!-- __________________________________________________ Face 2 __________________________________________________-->
+    <div class="face2 two cubebox2" >
+      <center> 
+        
+      
+         <div id="chargerbox">
+            <br><br><br><br><br><br><br><br><br>
+          <a class="hvr-buzz"> <img  src="pictures/chargingport.png"  id="chargingport"></a>
+          <a class="hvr-buzz"> <img  src="pictures/chargingport.png"  id="chargingport"></a>
+          <a class="hvr-buzz"> <img  src="pictures/chargingport.png"  id="chargingport"></a>
+        </div>
+      </center>
+
+    </div>
+
+    <!-- __________________________________________________ Face 3 __________________________________________________-->
+    <div class="face three cubebox" >
+     
+     
+    </div>
+
+     <!-- __________________________________________________ Face 4 __________________________________________________-->
+    <div class="face2 four cubebox2" >
+       <center> 
+         <div id="chargerbox">
+            
+              <i class="fa fa-phone-square fa-4x hvr-buzz callbuttons" aria-hidden="true" id="callcenter"></i>Community Center<br>
+              <i class="fa fa-phone-square fa-4x hvr-buzz callbuttons" aria-hidden="true" id="callemergency"></i>Emergency/911<br>
+              <i class="fa fa-phone-square fa-4x hvr-buzz callbuttons" aria-hidden="true" id="callinfo""></i>Information/311<br>
+        
+            <a class="hvr-buzz"> <img  src="pictures/phoneblack.png" id="phone"></a><br>
+        </div>
+      </center>
+
+    </div>
+
+    
+  </div>
+</div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script>
+$(document).ready(function(){
+    
+    $("#face1").click(function(){
+       calcRotation(0);
+    });
+
+    $("#face2").click(function(){
+      calcRotation(90);
+    });
+    
+    $("#face3").click(function(){
+       calcRotation(180);
+    });
+
+    $("#face4").click(function(){
+        calcRotation(270);
+    });
+    
+    function calcRotation(rot){
+           $("#cube").css("transform", "rotateY(-" + rot + "deg)");
+    }
+});
+
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body>
+</html>
